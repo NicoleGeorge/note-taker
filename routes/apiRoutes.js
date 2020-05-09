@@ -1,0 +1,1 @@
+const notesData= require("../notes/notesData")
