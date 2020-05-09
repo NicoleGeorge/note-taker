@@ -1,13 +1,18 @@
 const express = require("express");
 const path = require("path");
 const fs = require("fs");
+const bodyParser = require('body-parser')
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
 // Sets up the Express app to handle data parsing - same as student example
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+
+// Cors for cross origin allowance
+const cors = require('cors');
+app.use(cors());
 
 // NOTES data
 
@@ -22,10 +27,3 @@ app.listen(PORT, function () {
   console.log(`App listening on PORT: ${PORT}`);
 });
 
-app.get("/", function(req, res) {
-res.sendFile(path.join(__dirname, "index.html"));
-});
-
- app.get("/notes", function(req, res) {
-    res.sendFile(path.join(__dirname, "notes.html"));
- });
