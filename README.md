@@ -1,5 +1,5 @@
 # NOTE TAKER APP
-- deployed app via Heroku
+[view deployed app via Heroku](https://lit-beach-94667.herokuapp.com/)
 
 # DESCRIPTION
 
