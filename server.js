@@ -5,7 +5,7 @@ const bodyParser = require('body-parser')
 
 // Start up the app
 const app = express();
-// Setting up the port environment
+// Setting up the port environment - local & deployment via Heroku
 const PORT = process.env.PORT || 3000;
 
 // * Middleware * //
