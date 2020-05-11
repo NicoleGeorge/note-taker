@@ -36,15 +36,17 @@
     </div>
   </div>
   
-  <script>
-    $('.submit').on("click", function(even) {
-      event.default();
-    })
-</script>
+
 
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="/assets/js/index.js"></script>
+
+  <script>
+    $('.submit').on("click", function(event) {
+      event.default();
+    })
+</script>
 </body>
 
 </html>
