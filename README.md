@@ -22,6 +22,6 @@ SO THAT I can organize my thoughts and keep track of tasks I need to complete.
 
 # REFERENCES
 
-[code snippet for deleting notes](https://scotch.io/courses/build-a-restful-nodejs-api/post-put-delete-requests)
-[nodejs & express workshop](https://www.udemy.com/course/the-complete-web-development-bootcamp/learn/lecture/18125153#overview)
+- [code snippet for deleting notes](https://scotch.io/courses/build-a-restful-nodejs-api/post-put-delete-requests)
+- [nodejs & express workshop](https://www.udemy.com/course/the-complete-web-development-bootcamp/learn/lecture/18125153#overview)
 - in class activities
