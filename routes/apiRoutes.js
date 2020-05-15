@@ -1,5 +1,7 @@
 const fs = require("fs");
 const path = require("path");
+const { v4: uuidv4 } = require('uuid');
+
 
 let notes = JSON.parse(fs.readFileSync(path.join(__dirname + '/../db/db.json')));
 // Connecting notes data set
@@ -33,31 +35,42 @@ module.exports = (app) => {
         res.json(savedNotesData[0]);
      });
 
-    app.post("/api/notes", (req, res) => {
+    app.post("/api/notes", (req, res) => { 
+
+
+
         console.log(req.body);
-        notes.push(req.body);
+        let newNote = req.body;  // new note does not have an id property
+        
+        //objective: to add an id property to newNote
+        // how?
+        newNote.id = uuidv4();
+        notes.push(newNote);
+        fs.writeFileSync(path.join(__dirname + '/../db/db.json'), JSON.stringify(notes));
         res.json(notes);
-           
+        console.log(notes);
     });
 
     // TODO: delete only one note at a time - so far all notes are deleted
     app.delete("/api/notes/:id" , (req, res) => {
         // delete the array of data
 
-        let notesText = req.params.id;
+        let notesID = req.params.id;
 
-        let note = notes.filter(note => {
-            return note.id == notesText;
-        })[0];
+        notes = notes.filter(note => {
+            return note.id !== notesID;
+        });
+        fs.writeFileSync(path.join(__dirname + '/../db/db.json'), JSON.stringify(notes));
+        // const index = notes.indexOf(note);
 
-        const index = notes.indexOf(note);
-
-        notes.splice(index, 1);
+        // notes.splice(index, 1);
 
         console.log('note deleted');
         // res.send();
         console.log(req.params.id);  
         // notes.length = 0;
-        res.json({message: `Added ${notesText} has been deleted`});
+        res.json({message: `Added ${notesID} has been deleted`});
     });
 }
+
+
