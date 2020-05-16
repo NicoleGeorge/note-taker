@@ -20,11 +20,6 @@ app.use(express.static('public'));
 const cors = require('cors');
 app.use(cors());
 
-// NOTES data - testing connectivity
-// app.get("/", function(req, res) {
-//   res.send("<h1>Hello</h1>");
-// });
-
 // setting up the routes for index.html and notes.html
 
 require("./routes/apiRoutes")(app);
